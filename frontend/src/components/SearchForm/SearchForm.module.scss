@@ -1,0 +1,30 @@
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    height: 5rem;
+
+    .input {
+        padding: 0.5rem 1rem;
+        font-size: 1.25rem;
+        max-width: 400px;
+        border: none;
+        outline: 1px solid #ccc;
+        border-radius: 4px 0 0 4px;
+    }
+
+    .submit {
+        padding: 0.5rem 1rem;
+        font-size: 1.25rem;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 0 4px 4px 0;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+}
