@@ -12,7 +12,7 @@ import type { AxiosError } from "axios";
 
 function App() {
 	const [searchTerm, setSearchTerm] = useState<string>('')
-	const [parts, setParts] = useState<Array<IPartResponse> | null>(null)
+	const [parts, setParts] = useState<Array<IPartResponse>>([])
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 	const [error, setError] = useState<string | null>(null)
 
@@ -30,10 +30,12 @@ function App() {
 
 			if (error.response?.status && error.response.status >= 500) {
 				setError(error.response.data?.message || 'Произошла ошибка на сервере. Пожалуйста, попробуйте позже.');
+				setParts([])
 			}
 
 			if (error.response?.status === 404) {
-				setParts([]);
+				setError(error.response.data?.message || 'Ничего не найдено.');
+				setParts([])
 			}
 		} finally {
 			setIsLoading(false);
